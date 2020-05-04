@@ -1,0 +1,6 @@
+1. По идеалогиии Docker каждый сервис должен быть в своем контейнере.
+docker-compose pull - скачать образы
+docker-compose build - собрать контейнеры
+docker-compose build --pull - собрать контейнеры и скачать если обновились образы
+docker-compose up -d - поднять контейнеры
+docker-compose down --remove-orphans - остановить контейнеры

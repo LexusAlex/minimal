@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+
+    nginx:
+        build:
+            context: docker
+            dockerfile: nginx/Dockerfile
+        ports:
+            - "80:8080"
+        volumes:
+            - ./:/app
+        depends_on:
+            - php-fpm
+
+    php-fpm:
+        build:
+            context: docker
+            dockerfile: php-fpm/Dockerfile
+        environment:
+            APP_ENV: dev
+        volumes:
+            - ./:/app
+
+    php-cli:
+        build:
+            context: docker
+            dockerfile: php-cli/Dockerfile
+        environment:
+            APP_ENV: dev
+        volumes:
+            - ./:/backend
+
+    mariadb:
+        image: mariadb:10.5
+        environment:
+            MYSQL_ROOT_PASSWORD: minimal
+            MYSQL_DATABASE: minimal
+        volumes:
+            - mariadb:/var/lib/mysql
+            - ./docker/mariadb/conf.d/:/etc/mysql/conf.d/
+        ports:
+            - "3306:3306"
+
+volumes:
+    mariadb:
