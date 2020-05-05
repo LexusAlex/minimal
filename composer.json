@@ -1,0 +1,17 @@
+{
+    "name": "lexusalex/minimal",
+    "description": "Minimal project on php",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Alexsey Shmelev",
+            "email": "alexsey_89@bk.ru"
+        }
+    ],
+    "require": {}
+}
