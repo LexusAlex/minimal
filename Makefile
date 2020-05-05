@@ -1,10 +1,14 @@
-# Инициализация (очитска, скачивание, сборка, поднятие)
+# Инициализация (очистка, скачивание, сборка, поднятие)
 init: docker-down-clear docker-pull docker-build docker-up
 # Поднять
 up: docker-up
 # Остановить
 down: docker-down
+# Перезапустить
+restart :
+	docker-compose restart
 
+### Контейнеры и образы docker
 # Скачать все образы проекта
 docker-pull:
 	docker-compose pull
@@ -28,3 +32,8 @@ docker-down:
 # Остановка удаление томов у контейнеров
 docker-down-clear:
 	docker-compose down -v --remove-orphans
+
+### Composer
+# Установка пакетов
+composer-install:
+	docker-compose run --rm php-cli composer install
