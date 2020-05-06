@@ -1,6 +1,37 @@
-1. По идеалогиии Docker каждый сервис должен быть в своем контейнере.
+1. Работа с docker
+По идеалогиии Docker каждый сервис должен быть в своем контейнере.
+
 docker-compose pull - скачать образы
 docker-compose build - собрать контейнеры
 docker-compose build --pull - собрать контейнеры и скачать если обновились образы
 docker-compose up -d - поднять контейнеры
 docker-compose down --remove-orphans - остановить контейнеры
+docker-compose stop nginx - основить контейнер
+docker-compose restart - перезапустить все контейнеры
+docker-compose ps - список запущенных контейнеров
+docker-compose exec php-fpm php -v - запустить команду в запущенном контейнере
+docker-compose run --rm php-cli composer - запустить команду в специальном консольном контейнере php
+docker-compose run --rm php-cli composer init создать composer.json
+chown -R alex:alex composer.json - смена прав
+docker-compose run --rm php-cli composer require --dev roave/security-advisories:dev-master установка пакета
+docker-compose run --rm php-cli composer require php-di/php-di
+docker-compose run --rm php-cli composer require laminas/laminas-config-aggregator
+docker-compose run --rm php-cli composer require slim/slim slim/psr7 php-di/php-di
+
+
+2. Работа с базой данных
+Подключение к бд
+127.0.0.1
+root
+minimal
+minimal
+
+$pdo = new PDO('mysql:dbname=minimal;host=mariadb;port=3306', 'root', 'minimal', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+]);
+
+3. Контейнер внедрения зависимостей
+https://packagist.org/?query=psr-11
+psr-11 php-di/php-di
