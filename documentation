@@ -16,7 +16,7 @@ chown -R alex:alex composer.json - смена прав
 docker-compose run --rm php-cli composer require --dev roave/security-advisories:dev-master установка пакета
 docker-compose run --rm php-cli composer require php-di/php-di
 docker-compose run --rm php-cli composer require laminas/laminas-config-aggregator
-docker-compose run --rm php-cli composer require slim/slim slim/psr7 php-di/php-di
+docker-compose run --rm php-cli composer require slim/slim slim/psr7
 
 
 2. Работа с базой данных
@@ -34,4 +34,7 @@ $pdo = new PDO('mysql:dbname=minimal;host=mariadb;port=3306', 'root', 'minimal',
 
 3. Контейнер внедрения зависимостей
 https://packagist.org/?query=psr-11
-psr-11 php-di/php-di
+psr-11 php-di/php-di Выносить туда все сущности
+
+4. slim
+Фактически задача любого веб приложения получить request и отдать response

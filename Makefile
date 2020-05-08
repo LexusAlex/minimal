@@ -1,5 +1,5 @@
 # Инициализация (очистка, скачивание, сборка, поднятие)
-init: docker-down-clear docker-pull docker-build docker-up
+init: docker-down-clear docker-pull docker-build docker-up composer-install
 # Поднять
 up: docker-up
 # Остановить
@@ -37,3 +37,7 @@ docker-down-clear:
 # Установка пакетов
 composer-install:
 	docker-compose run --rm php-cli composer install
+
+# Обновить автозагрузчик
+composer-dump-autoload:
+	docker-compose run --rm php-cli composer dump-autoload
