@@ -17,6 +17,7 @@ docker-compose run --rm php-cli composer require --dev roave/security-advisories
 docker-compose run --rm php-cli composer require php-di/php-di
 docker-compose run --rm php-cli composer require laminas/laminas-config-aggregator
 docker-compose run --rm php-cli composer require slim/slim slim/psr7
+docker-compose run --rm php-cli composer require slim/php-view
 
 
 2. Работа с базой данных
@@ -38,3 +39,5 @@ psr-11 php-di/php-di Выносить туда все сущности
 
 4. slim
 Фактически задача любого веб приложения получить request и отдать response
+
+https://github.com/Cvar1984/slim
