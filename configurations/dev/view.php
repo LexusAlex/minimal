@@ -12,7 +12,7 @@ return [
 
     'configurations' => [
         'view' => [
-            'TemplatePath' => __DIR__ . '/../../templates',
+            'TemplatePath' => __DIR__ . '/../../public/templates',
             'Layout' => '/layouts/html.php',
         ]
     ]
