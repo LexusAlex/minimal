@@ -41,3 +41,14 @@ psr-11 php-di/php-di Выносить туда все сущности
 Фактически задача любого веб приложения получить request и отдать response
 
 https://github.com/Cvar1984/slim
+
+5. phinx Мограции БД
+https://github.com/cakephp/phinx
+https://book.cakephp.org/phinx/0/en/index.html
+docker-compose run --rm php-cli composer require robmorgan/phinx
+docker-compose run --rm php-cli composer require symfony/yaml
+docker-compose run --rm php-cli composer phinx
+docker-compose run --rm php-cli composer phinx init
+
+Создание
+make migrate name=AddedTableMenu

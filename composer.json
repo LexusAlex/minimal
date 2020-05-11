@@ -18,9 +18,11 @@
         "ext-PDO": "^7.4",
         "laminas/laminas-config-aggregator": "^1.2",
         "php-di/php-di": "^6.1",
+        "robmorgan/phinx": "^0.12.1",
         "slim/php-view": "^2.2",
         "slim/psr7": "^1.1",
-        "slim/slim": "^4.5"
+        "slim/slim": "^4.5",
+        "symfony/yaml": "^5.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
@@ -29,5 +31,8 @@
         "psr-4": {
             "App\\": "src/"
         }
+    },
+    "scripts": {
+        "phinx": "phinx"
     }
 }

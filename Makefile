@@ -41,3 +41,24 @@ composer-install:
 # Обновить автозагрузчик
 composer-dump-autoload:
 	docker-compose run --rm php-cli composer dump-autoload
+
+
+### Миграции
+# Создать миграцию + права доступа
+create-migration: add-migration change-permitions
+
+# Создать миграцию
+add-migration:
+	docker-compose run --rm php-cli composer phinx create $(name)
+
+# Поменять права на файлы
+change-permitions:
+	docker-compose run --rm php-cli chmod -R 777 db/mariadb/migrations/
+
+# Запуск миграций
+run-migrations:
+	docker-compose run --rm php-cli composer phinx migrate
+
+# Откат миграции
+rollback-migration:
+	docker-compose run --rm php-cli composer phinx rollback

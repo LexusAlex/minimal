@@ -11,11 +11,11 @@ return [
     'configurations' => [
         'mariadb' => [
             'driver' => 'mysql',
-            'dbname' => getenv('DB_NAME'),
-            'host' => getenv('DB_HOST'),
-            'port' => getenv('DB_PORT'),
-            'user' => getenv('DB_USER'),
-            'password' => getenv('DB_PASSWORD'),
+            'dbname' => getenv('PHINX_DB_NAME'),
+            'host' => getenv('PHINX_DB_HOST'),
+            'port' => getenv('PHINX_DB_PORT'),
+            'user' => getenv('PHINX_DB_USER'),
+            'password' => getenv('PHINX_DB_PASSWORD'),
             'constants' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

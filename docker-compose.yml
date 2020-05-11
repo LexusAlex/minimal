@@ -18,11 +18,11 @@ services:
             dockerfile: php-fpm/Dockerfile
         environment:
             APP_ENV: dev
-            DB_HOST: mariadb
-            DB_USER: root
-            DB_PASSWORD: minimal
-            DB_NAME: minimal
-            DB_PORT: 3306
+            PHINX_DB_HOST: mariadb
+            PHINX_DB_USER: root
+            PHINX_DB_PASSWORD: minimal
+            PHINX_DB_NAME: minimal
+            PHINX_DB_PORT: 3306
         volumes:
             - ./:/app
 
@@ -32,11 +32,11 @@ services:
             dockerfile: php-cli/Dockerfile
         environment:
             APP_ENV: dev
-            DB_HOST: mariadb
-            DB_USER: root
-            DB_PASSWORD: minimal
-            DB_NAME: minimal
-            DB_PORT: 3306
+            PHINX_DB_HOST: mariadb
+            PHINX_DB_USER: root
+            PHINX_DB_PASSWORD: minimal
+            PHINX_DB_NAME: minimal
+            PHINX_DB_PORT: 3306
         volumes:
             - ./:/app
 
