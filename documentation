@@ -50,5 +50,13 @@ docker-compose run --rm php-cli composer require symfony/yaml
 docker-compose run --rm php-cli composer phinx
 docker-compose run --rm php-cli composer phinx init
 
-Создание
-make migrate name=AddedTableMenu
+Создание миграции
+make create-migration name=AddedTableMenu
+
+Добавление данных
+make added-data name=Data
+
+---
+Задачи
+1. Работа с иерархическими структурами
+2. Парсинг exсel файла и формирование готового sql

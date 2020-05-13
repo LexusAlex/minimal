@@ -42,18 +42,17 @@ composer-install:
 composer-dump-autoload:
 	docker-compose run --rm php-cli composer dump-autoload
 
-
 ### Миграции
 # Создать миграцию + права доступа
-create-migration: add-migration change-permitions
+create-migration: add-migration change-permitions-migrations
 
 # Создать миграцию
 add-migration:
 	docker-compose run --rm php-cli composer phinx create $(name)
 
 # Поменять права на файлы
-change-permitions:
-	docker-compose run --rm php-cli chmod -R 777 db/mariadb/migrations/
+change-permitions-migrations:
+	docker-compose run --rm php-cli chmod -R 777 db/mariadb/migrations/ db/mariadb/seeds/
 
 # Запуск миграций
 run-migrations:
@@ -62,3 +61,11 @@ run-migrations:
 # Откат миграции
 rollback-migration:
 	docker-compose run --rm php-cli composer phinx rollback
+
+### Донные
+# Создание файла с данными
+create-data:
+	docker-compose run --rm php-cli composer phinx -- seed:create $(name)
+# Добавление данных в базу данных
+added-data:
+	docker-compose run --rm php-cli composer phinx -- seed:run -s $(name)
