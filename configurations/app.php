@@ -15,6 +15,7 @@ return static function (ContainerInterface $container): App {
 
     $app->get('/', IndexController::class. ':index');
     $app->get('/test', IndexController::class. ':test');
+    $app->get('/tree', IndexController::class. ':tree');
 
     return $app;
 };

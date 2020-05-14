@@ -9,7 +9,8 @@ use Laminas\ConfigAggregator\PhpFileProvider;
 $builder = new ContainerBuilder();
 
 $aggregator = new ConfigAggregator([
-    new PhpFileProvider(__DIR__ . '/dev/*.php')
+    new PhpFileProvider(__DIR__ . '/dev/*.php'),
+    new PhpFileProvider(__DIR__ . '/repositories.php')
 ]);
 
 $builder->addDefinitions($aggregator->getMergedConfig());

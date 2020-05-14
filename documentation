@@ -56,6 +56,11 @@ make create-migration name=AddedTableMenu
 Добавление данных
 make added-data name=Data
 
+6. Инфраструктура БД
+ Репозитории - Через них получаем строго данные. Один репозиторий может работать с несколькими таблицами
+
+Примеры проектов
+https://github.com/maurobonfietti/rest-api-slim-php
 ---
 Задачи
 1. Работа с иерархическими структурами
