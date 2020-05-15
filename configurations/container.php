@@ -10,7 +10,8 @@ $builder = new ContainerBuilder();
 
 $aggregator = new ConfigAggregator([
     new PhpFileProvider(__DIR__ . '/dev/*.php'),
-    new PhpFileProvider(__DIR__ . '/repositories.php')
+    new PhpFileProvider(__DIR__ . '/repositories.php'),
+    new PhpFileProvider(__DIR__ . '/services.php')
 ]);
 
 $builder->addDefinitions($aggregator->getMergedConfig());

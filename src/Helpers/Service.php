@@ -2,16 +2,16 @@
 
 namespace App\Helpers;
 
+use App\Repository\TreeRepository;
 use DI\Container;
 
-class Repository{
+class Service{
 
     protected Container $container;
-    protected \PDO $mariadb;
+    protected $tree;
 
     public function __construct(Container $container) {
         $this->container = $container;
-        $this->mariadb = $container->get(\PDO::class);
+        $this->tree = $container->get(TreeRepository::class);
     }
-
 }
