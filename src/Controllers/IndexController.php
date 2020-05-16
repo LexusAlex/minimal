@@ -18,9 +18,9 @@ class IndexController extends Controller
     public function tree(Request $request, Response $response, $args) {
 
         $view = $this->view;
-        var_dump($this->services['tree']->getAll());
+        $tree = $this->services['tree'];
         $view->setAttributes(['title' => 'Работа с иерархическими структурами']);
-        return $view->render($response,'index/tree.php');
+        return $view->render($response,'index/tree.php',['tree' => $tree->buildTree($tree->getAll())]);
     }
 
     public function test(Request $request, Response $response, $args) {
