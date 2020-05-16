@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controllers\ApiTreeController;
 use App\Controllers\IndexController;
 use Psr\Container\ContainerInterface;
 use Slim\App;
@@ -16,6 +17,7 @@ return static function (ContainerInterface $container): App {
     $app->get('/', IndexController::class. ':index');
     $app->get('/test', IndexController::class. ':test');
     $app->get('/tree', IndexController::class. ':tree');
+    $app->get('/tree/list', ApiTreeController::class. ':list');
 
     return $app;
 };

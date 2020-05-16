@@ -8,11 +8,23 @@ use App\Helpers\Service;
 
 class TreeService extends Service
 {
+    /**
+     * @return array
+     */
     public function getAll(): array
     {
         return $this->tree->getAll();
     }
 
+    /**
+     * @param array $flat
+     * @param string $pidKey
+     * @param string $idKey
+     * @param string $sibKey
+     * @param string $typeKey
+     * @param null $parent_id_start
+     * @return array
+     */
     public function buildTree(array $flat, string $pidKey = 'parent_id', string $idKey = 'id', string $sibKey = 'children', string $typeKey = 'type', $parent_id_start = null): array
     {
         // Группируем по родительским элементам
