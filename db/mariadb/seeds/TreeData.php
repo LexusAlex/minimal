@@ -15,7 +15,7 @@ class TreeData extends AbstractSeed
      */
     public function run()
     {
-        $sql = "INSERT INTO tree (parent_id, name, description, type) VALUES 
+        $sql = "INSERT INTO tree (parent_id, text, description, type) VALUES 
         (NULL, 'root', 'root', 0),
         (1, 'Книги', 'Книги', 0),
         (1, 'Журналы', 'Журналы', 0),

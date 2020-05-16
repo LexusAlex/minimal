@@ -9,7 +9,7 @@ class AddedTableTree extends AbstractMigration
         $sql = 'CREATE TABLE IF NOT EXISTS `tree` (
           `id` INT NOT NULL AUTO_INCREMENT,
           `parent_id` INT NULL,
-          `name` VARCHAR(255) NOT NULL,
+          `text` VARCHAR(255) NOT NULL,
           `description` VARCHAR(255) NOT NULL,
           `type` INT NOT NULL,
           PRIMARY KEY (`id`),
