@@ -1,3 +1,1 @@
-<?php
-echo '<pre>';
-print_r($tree);
+<div id="jstree_demo_div"></div>
