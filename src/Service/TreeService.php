@@ -52,4 +52,22 @@ class TreeService extends Service
         // Вызываем функцию с нужного ключа
         return $fnBuilder($grouped[$parent_id_start]);
     }
+
+    function outputTree()
+    {
+        $tree = $this->buildTree($this->getAll());
+        $result = '';
+        $function = function ($tree) use (&$function, $result) {
+            foreach ($tree as $item => $value) {
+                $result .= '<li>'.$value['text'].'</li>';
+                if (isset($value['children'])) {
+                    $result .= '<ul>'.$function($value['children']).'</ul>';
+                }
+            }
+            return $result;
+        };
+
+        return '<ul>'.$function($tree).'</ul>';
+
+    }
 }

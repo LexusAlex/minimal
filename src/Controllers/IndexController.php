@@ -15,12 +15,20 @@ class IndexController extends Controller
         return $view->render($response,'index/index.php');
     }
 
-    public function tree(Request $request, Response $response, $args) {
+    public function tree1(Request $request, Response $response, $args) {
+
+        $view = $this->view;
+        $view->setAttributes(['title' => 'Работа с иерархическими структурами']);
+        return $view->render($response,'index/tree1.php');
+    }
+
+    public function tree2(Request $request, Response $response, $args) {
 
         $view = $this->view;
         $tree = $this->services['tree'];
         $view->setAttributes(['title' => 'Работа с иерархическими структурами']);
-        return $view->render($response,'index/tree.php',['tree' => $tree->buildTree($tree->getAll())]);
+
+        return $view->render($response,'index/tree2.php',['output' => $tree->outputTree()]);
     }
 
     public function test(Request $request, Response $response, $args) {

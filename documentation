@@ -73,3 +73,4 @@ docker-compose run --rm php-cli composer require fzaninotto/faker
 Задачи
 1. Работа с иерархическими структурами
 2. Парсинг exсel файла и формирование готового sql
+3. Пагинация
