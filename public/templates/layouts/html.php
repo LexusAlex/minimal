@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/jstree/themes/default/style.min.css"
+    <link rel="stylesheet" href="../../css/jstree/themes/default/style.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <title><?php echo $title;?></title>
 </head>
@@ -18,7 +18,8 @@
         <div class="col-3">
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="/tree">Работа с иерархическами структурами</a></li>
+                <li><a href="/tree1">Работа с иерархическами структурами (treejs)</a></li>
+                <li><a href="/tree2">Работа с иерархическами структурами (руками)</a></li>
             </ul>
         </div>
         <div class="col-9">
