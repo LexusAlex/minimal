@@ -15,4 +15,11 @@ class ApiTreeController extends Controller
         $response = $response->withHeader('Content-type', 'application/json');
         return $response;
     }
+
+    public function create(Request $request, Response $response, $args) {
+        //var_dump($args);
+        $response->getBody()->write('ок');
+        //$response = $response->withHeader('Content-type', 'application/json');
+        return $response;
+    }
 }

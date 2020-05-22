@@ -19,6 +19,7 @@ return static function (ContainerInterface $container): App {
     $app->get('/tree1', IndexController::class. ':tree1');
     $app->get('/tree2', IndexController::class. ':tree2');
     $app->get('/tree/list', ApiTreeController::class. ':list');
+    $app->get('/tree/create', ApiTreeController::class. ':create');
 
     return $app;
 };
