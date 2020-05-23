@@ -25,8 +25,14 @@ class TreeService extends Service
      * @param null $parent_id_start
      * @return array
      */
-    public function buildTree(array $flat, string $pidKey = 'parent_id', string $idKey = 'id', string $sibKey = 'children', string $typeKey = 'type', $parent_id_start = null): array
-    {
+    public function buildTree(
+        array $flat,
+        string $pidKey = 'parent_id',
+        string $idKey = 'id',
+        string $sibKey = 'children',
+        string $typeKey = 'type',
+        $parent_id_start = null
+    ): array {
         // Группируем по родительским элементам
         // при необходимости в качестве ключей можно выставить id элемента в качестве ключа $sub['id']
         $grouped = [];
@@ -53,21 +59,20 @@ class TreeService extends Service
         return $fnBuilder($grouped[$parent_id_start]);
     }
 
-    function outputTree()
+    public function outputTree()
     {
         $tree = $this->buildTree($this->getAll());
         $result = '';
         $function = function ($tree) use (&$function, $result) {
             foreach ($tree as $item => $value) {
-                $result .= '<li>'.$value['text'].'</li>';
+                $result .= '<li>' . $value['text'] . '</li>';
                 if (isset($value['children'])) {
-                    $result .= '<ul>'.$function($value['children']).'</ul>';
+                    $result .= '<ul>' . $function($value['children']) . '</ul>';
                 }
             }
             return $result;
         };
 
-        return '<ul>'.$function($tree).'</ul>';
-
+        return '<ul>' . $function($tree) . '</ul>';
     }
 }

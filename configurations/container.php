@@ -19,5 +19,4 @@ $builder->addDefinitions($aggregator->getMergedConfig());
 try {
     return $builder->build();
 } catch (Exception $e) {
-
 }

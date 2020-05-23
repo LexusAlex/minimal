@@ -69,6 +69,15 @@ docker-compose run --rm php-cli composer require vakata/jstree
 
 Библиотека для создания фейковых данных
 docker-compose run --rm php-cli composer require fzaninotto/faker
+
+7. Линтер phplint проверка на корректность php файлов
+docker-compose run --rm php-cli composer require overtrue/phplint --dev
+
+8. php codesniffer проверка на соответсвие стилю кодирования
+docker-compose run --rm php-cli composer require squizlabs/php_codesniffer --dev
+
+9. Синтаксические анализаторы
+psalm docker-compose run --rm php-cli composer require vimeo/psalm --dev
 ---
 Задачи
 1. Работа с иерархическими структурами

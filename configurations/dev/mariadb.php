@@ -3,10 +3,21 @@
 use Psr\Container\ContainerInterface;
 
 return [
-    PDO::class => static function(ContainerInterface $container) {
+    PDO::class => static function (ContainerInterface $container) {
+        /**
+         * @var array $confuguration
+         * @psalm-suppress MixedArrayAccess
+         * @psalm-suppress MixedArgument
+         */
         $confuguration = $container->get('configurations')['mariadb'];
-        return new PDO($confuguration['driver'].':dbname=' . $confuguration['dbname'] . ';host=' . $confuguration['host']  . ';port=' . $confuguration['port'] ,
-            $confuguration['user'] , $confuguration['password'] , $confuguration['constants']);
+        $dsn = $confuguration['driver'] . ':dbname=' . $confuguration['dbname'] . ';host=' . $confuguration['host']  .
+            ';port=' . $confuguration['port'];
+        return new PDO(
+            $dsn,
+            $confuguration['user'],
+            $confuguration['password'],
+            $confuguration['constants']
+        );
     },
     'configurations' => [
         'mariadb' => [

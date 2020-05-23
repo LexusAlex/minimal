@@ -19,7 +19,6 @@ class AddedTableTree extends AbstractMigration
         ) CHARACTER SET utf8 COLLATE utf8_general_ci;';
 
         $this->execute($sql);
-
     }
 
     public function down()

@@ -7,6 +7,9 @@ down: docker-down
 # Перезапустить
 restart :
 	docker-compose restart
+# Проверки
+lint: phplint phpcs
+analyze: psalm
 
 ### Контейнеры и образы docker
 # Скачать все образы проекта
@@ -69,3 +72,17 @@ create-data:
 # Добавление данных в базу данных
 added-data:
 	docker-compose run --rm php-cli composer phinx -- seed:run -s $(name)
+
+### Проверки
+# Линтер
+phplint:
+	docker-compose run --rm php-cli composer phplint
+# Соотвествие стандартам
+phpcs:
+	docker-compose run --rm php-cli composer cs-check
+# Исправление кода к соответствию со стандартами
+phpcsfix:
+	docker-compose run --rm php-cli composer cs-fixed
+# Синтаксический анализ кода
+psalm:
+	docker-compose run --rm php-cli composer psalm

@@ -26,12 +26,11 @@ class TreeDataFake extends AbstractSeed
 
 
         foreach ($data as $datum) {
-            $sql .= '(' .(implode(',',$datum)) . '),';
+            $sql .= '(' . (implode(',', $datum)) . '),';
         }
 
-        $string = substr($sql,0,-1);
+        $string = substr($sql, 0, -1);
 
         $this->execute($string);
-
     }
 }

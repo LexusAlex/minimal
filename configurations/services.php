@@ -6,7 +6,7 @@ use App\Service\TreeService;
 use Psr\Container\ContainerInterface;
 
 return [
-    TreeService::class => static function(ContainerInterface $container) {
-       return new TreeService($container);
+    TreeService::class => static function (ContainerInterface $container) {
+        return new TreeService($container);
     }
 ];
