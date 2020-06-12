@@ -26,12 +26,16 @@ class IndexController extends Controller
 
     public function tree2(Request $request, Response $response, $args)
     {
-
         $view = $this->view;
         $tree = $this->services['tree'];
         $view->setAttributes(['title' => 'Работа с иерархическими структурами']);
+        $currentElement = null;
+        if (isset($args['id'])) {
+            $currentElementTree = $tree->output($tree->getCurrentElementTree($args['id']));
+            $currentElement = $tree->getCurrentElement($args['id'])[$args['id']];
+        }
 
-        return $view->render($response, 'index/tree2.php', ['output' => $tree->outputTree()]);
+        return $view->render($response, 'index/tree2.php', ['output' => $tree->output($tree->getTree()), 'current' => $currentElementTree, 'currentElement' => $currentElement]);
     }
 
     public function test(Request $request, Response $response, $args)

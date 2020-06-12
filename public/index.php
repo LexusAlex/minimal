@@ -16,3 +16,4 @@ $container = require __DIR__ . '/../configurations/container.php';
 $app = (require __DIR__ . '/../configurations/app.php')($container);
 
 $app->run();
+

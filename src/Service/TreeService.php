@@ -17,6 +17,14 @@ class TreeService extends Service
     }
 
     /**
+     * @return array
+     */
+    public function getTree(): array
+    {
+        return $this->buildTree($this->getAll());
+    }
+
+    /**
      * @param array $flat
      * @param string $pidKey
      * @param string $idKey
@@ -32,7 +40,8 @@ class TreeService extends Service
         string $sibKey = 'children',
         string $typeKey = 'type',
         $parent_id_start = null
-    ): array {
+    ): array
+    {
         // Группируем по родительским элементам
         // при необходимости в качестве ключей можно выставить id элемента в качестве ключа $sub['id']
         $grouped = [];
@@ -59,20 +68,48 @@ class TreeService extends Service
         return $fnBuilder($grouped[$parent_id_start]);
     }
 
-    public function outputTree()
+    /**
+     * @return string
+     */
+    public function output($arrayTree)
     {
-        $tree = $this->buildTree($this->getAll());
         $result = '';
         $function = function ($tree) use (&$function, $result) {
             foreach ($tree as $item => $value) {
-                $result .= '<li>' . $value['text'] . '</li>';
+                $result .= '<li>' . '<a href="/tree2/' . $value['id'] . '">' . $value['text'] . '</a>';
                 if (isset($value['children'])) {
                     $result .= '<ul>' . $function($value['children']) . '</ul>';
                 }
+                $result .= '</li>';
             }
             return $result;
         };
 
-        return '<ul>' . $function($tree) . '</ul>';
+        return '<ul>' . $function($arrayTree) . '</ul>';
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function getCurrentElementTree($id)
+    {
+        return $this->buildTree($this->getAll(), 'parent_id', 'id', 'children', 'type', $id);
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function getCurrentElement($id)
+    {
+        $element = [];
+
+        foreach ($this->getAll() as $item => $value) {
+            if ($value['id'] == $id) {
+                $element[$id] = $value;
+            }
+        }
+        return $element;
     }
 }
