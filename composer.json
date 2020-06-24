@@ -24,7 +24,8 @@
         "slim/psr7": "^1.1",
         "slim/slim": "^4.5",
         "symfony/yaml": "^5.0",
-        "vakata/jstree": "^3.3"
+        "vakata/jstree": "^3.3",
+        "yohang/finite": "^1.1"
     },
     "require-dev": {
         "overtrue/phplint": "^2.0",
