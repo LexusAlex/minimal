@@ -78,6 +78,23 @@ docker-compose run --rm php-cli composer require squizlabs/php_codesniffer --dev
 
 9. Синтаксические анализаторы
 psalm docker-compose run --rm php-cli composer require vimeo/psalm --dev
+
+
+10. Конечный автомат
+docker-compose run --rm php-cli composer require yohang/finite
+
+11. Задача о построении материально технических ценностей организации
+Проект       mtco_project - Развитие
+
+Категории разделов mtco_category_departments Учебные, производственные
+Отделы,этажи mtco_departments - IT отдел, 1 этаж
+Категории свойств разделов mtco_category_properties_departments Общие, технические
+Свойства разделов mtco_properties_departments Цвет - черный
+
+Категории оборудования
+Категории свойств оборудования
+Свойства оборудования
+Оборудование
 ---
 Задачи
 1. Работа с иерархическими структурами
